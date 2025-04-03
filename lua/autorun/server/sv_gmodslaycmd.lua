@@ -1,10 +1,11 @@
 util.AddNetworkString("SendSlaySound")
 
 hook.Add("PlayerSay","SlayCommand",function(ply,txt)
-    if !ply:IsAdmin() then
-        ply:PrintMessage(HUD_PRINTTALK,"Vous n'êtes pas administrateur !") 
-    end
     if string.StartsWith(txt,"!slay ") then
+        if !ply:IsAdmin() then
+            ply:PrintMessage(HUD_PRINTTALK,"Vous n'êtes pas administrateur !") 
+            return ""
+        end
         local command = string.Explode(" ",txt,false)
         local targetNickname = command[2]
         local allPlayers = player.GetAll()
@@ -22,7 +23,7 @@ hook.Add("PlayerSay","SlayCommand",function(ply,txt)
         else
             ply:PrintMessage(HUD_PRINTTALK,"Joueur(s) \"" .. targetNickname .. "\" a bien été slay")
         end
-    end
     return ""
+    end
 end
 )
