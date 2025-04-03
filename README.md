@@ -1,1 +1,28 @@
-J'adore le markdown 😛😛
+# gmodslaycmd ☢️
+
+- Petit addon qui ajoute une commande slay, notamment pour le mode SandBox quand vous avez un ami un peu chiant.
+- Permissions administrateur nécessaires
+
+## Comment l'utiliser 
+
+`!slay <Pseudo du joueur>`
+
+Exemple, si mon pseudo steam est "Burrows2775" : 
+
+`!slay Burrows2775`
+
+Dans ce cas, tous les joueurs ayant ce pseudo dans le serveur seront slay !
+
+- Le slay de bots fonctionne également.
+
+## Comment l'installer
+
+Installez puis déposez le dossier gmodslaycmd décompressé dans le chemin suivant : 
+
+`C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons`
+
+## Avertissement
+
+Je ne garantis en AUCUN cas la fiabilité ni la sécurité de cet addon 🙂
+
+
