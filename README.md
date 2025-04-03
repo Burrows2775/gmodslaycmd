@@ -25,4 +25,6 @@ Installez puis déposez le dossier gmodslaycmd décompressé dans le chemin suiv
 
 Je ne garantis en AUCUN cas la fiabilité ni la sécurité de cet addon 🙂
 
+Je garantis par contre la non-présence de backdoors ou d'autres saloperies de ce style (en 2025 ça serait grave)
+
 
