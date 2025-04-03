@@ -1,52 +1,38 @@
-
 if SERVER then
 
-    util.AddNetworkString("CmdSlay")
-    util.AddNetworkString("CmdSlaySound")
+    util.AddNetworkString("SendSlaySound")
 
-    net.Receive("CmdSlay", function( len, ply )
-        if ply:IsAdmin() then
-            local PlyToKill = net.ReadEntity()
-            net.Start("CmdSlaySound")
-            net.Send(PlyToKill)
-            PlyToKill:Kill()
-        else
-            ply:Kill()
+    hook.Add("PlayerSay","SlayCommand",function(ply,txt)
+        if !ply:IsAdmin() then
+            ply:PrintMessage(HUD_PRINTTALK,"Vous n'êtes pas administrateur !") 
         end
-    end)
+        if string.StartsWith(txt,"!slay ") then
+            local command = string.Explode(" ",txt,false)
+            local targetNickname = command[2]
+            local allPlayers = player.GetAll()
+            local correspondances = 0
+            for k,v in ipairs(allPlayers) do
+                if v:Nick() == targetNickname then
+                    v:Kill()
+                    net.Start("SendSlaySound")
+                    net.Send(v)
+                    correspondances = correspondances + 1 
+                end
+            end
+            if correspondances <= 0 then
+                ply:PrintMessage(HUD_PRINTTALK,"Joueur \"" .. targetNickname .. "\" introuvable")
+            else
+                ply:PrintMessage(HUD_PRINTTALK,"Joueur(s) \"" .. targetNickname .. "\" a bien été slay")
+            end
+        end
+        return ""
+    end
+    )
+
 end
 
 if CLIENT then
-
-    hook.Add("OnPlayerChat", "MessageChat", function(ply, text)
-        if string.StartsWith(text, "!slay ") and LocalPlayer():IsAdmin() then
-            local command = string.Explode(" ", text, false)
-            local target = command[2]
-            
-            local allPlayers = player.GetAll();
-            local correspond = 0;
-
-            for k,v in ipairs(allPlayers) do
-                if v:Nick() == target then
-                    net.Start("CmdSlay")
-                    net.WriteEntity(v)
-                    net.SendToServer()
-                    correspond = correspond + 1
-                end
-            end
-
-            if correspond <= 0 then
-                ply:PrintMessage(HUD_PRINTTALK, "Joueur \"" .. target .. "\" introuvable")
-            end
-
-        elseif !LocalPlayer():IsAdmin() then
-            ply:PrintMessage(HUD_PRINTTALK, "Vous n'êtes pas admin !")
-        end            
-    return ""
-    end)
-    
-    net.Receive("CmdSlaySound", function()
+    net.Receive("SendSlaySound",function()
         surface.PlaySound("spongebob.wav")
     end)
-
 end
