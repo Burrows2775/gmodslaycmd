@@ -21,6 +21,10 @@ Installez puis déposez le dossier gmodslaycmd décompressé dans le chemin suiv
 
 `C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons`
 
+## Son
+
+Un son est joué sur le jeu de la victime quand vous utilisez la commande, vous pouvez modifier celui-ci en remplaçant le fichier audio `spongebob.wav` déjà présent. Veillez à bien renommer votre fichier audio et à utiliser l'extension .wav
+
 ## Avertissement
 
 Je ne garantis en AUCUN cas la fiabilité ni la sécurité de cet addon 🙂
