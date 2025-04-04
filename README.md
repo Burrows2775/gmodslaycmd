@@ -13,7 +13,17 @@ Exemple, si mon pseudo steam est "Burrows2775" :
 
 Dans ce cas, tous les joueurs ayant ce pseudo dans le serveur seront slay !
 
-- Le slay de bots fonctionne également.
+
+## Interface graphique
+
+Vous pouvez ouvrir l'interface graphique avec : 
+
+`!slay`
+
+![image](https://i.imgur.com/nF5m1Uk.png)
+
+- L'interface graphique ne permet pas de slay des bots contrairement à la version !slay <\pseudo> !
+
 
 ## Comment l'installer
 

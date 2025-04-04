@@ -1,7 +1,12 @@
 util.AddNetworkString("SendSlaySound")
+util.AddNetworkString("SendSlayMenu")
 
 hook.Add("PlayerSay","SlayCommand",function(ply,txt)
-    if string.StartsWith(txt,"!slay ") then
+    if txt == "!slay" and ply:IsAdmin() then
+        net.Start("SendSlayMenu")
+        net.Send(ply)
+        return ""
+    elseif string.StartsWith(txt,"!slay ") then
         if !ply:IsAdmin() then
             ply:PrintMessage(HUD_PRINTTALK,"Vous n'êtes pas administrateur !") 
             return ""
@@ -27,3 +32,13 @@ hook.Add("PlayerSay","SlayCommand",function(ply,txt)
     end
 end
 )
+
+net.Receive("SendSlayMenu", function(len,ply)
+    if ply:IsAdmin() then
+        local steamid = net.ReadString()
+        local target = player.GetBySteamID(steamid)
+        net.Start("SendSlaySound")
+        net.Send(target)
+        target:Kill()
+    end
+end)
