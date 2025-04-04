@@ -20,9 +20,9 @@ Vous pouvez ouvrir l'interface graphique avec :
 
 `!slay`
 
-![image](https://i.imgur.com/nF5m1Uk.png)
+![image](https://i.imgur.com/r5KHtFX.png)
 
-- L'interface graphique ne permet pas de slay des bots contrairement à la version !slay <\pseudo> !
+- L'interface graphique ne permet pas de slay des bots contrairement à la version `!slay <Pseudo du joueur>` !
 
 
 ## Comment l'installer
