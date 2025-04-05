@@ -7,7 +7,7 @@ end)
 net.Receive("SendSlayMenu", function()
 
     local Frame = vgui.Create( "DFrame" )
-    Frame:SetTitle("Slay menu")
+    Frame:SetTitle("Gmod Player Management")
     Frame:SetSize( ScrW() * 300/1920, ScrH() * 300/1080 )
     Frame:Center()	
     Frame:SetDraggable(true)		
