@@ -8,7 +8,7 @@ hook.Add("PlayerSay","SlayCommand",function(ply,txt)
         return ""
     elseif string.StartsWith(txt,"!slay ") then
         if !ply:IsAdmin() then
-            ply:PrintMessage(HUD_PRINTTALK,"Vous n'êtes pas administrateur !") 
+            ply:PrintMessage(HUD_PRINTTALK,"You aren't an admin !") 
             return ""
         end
         local command = string.Explode(" ",txt,false)
@@ -24,9 +24,9 @@ hook.Add("PlayerSay","SlayCommand",function(ply,txt)
             end
         end
         if correspondances <= 0 then
-            ply:PrintMessage(HUD_PRINTTALK,"Joueur \"" .. targetNickname .. "\" introuvable")
+            ply:PrintMessage(HUD_PRINTTALK,"Can't find \"" .. targetNickname .. "\"")
         else
-            ply:PrintMessage(HUD_PRINTTALK,"Joueur(s) \"" .. targetNickname .. "\" a bien été slay")
+            ply:PrintMessage(HUD_PRINTTALK,"Player( \"" .. targetNickname .. "\" has been slayed")
         end
     return ""
     end
