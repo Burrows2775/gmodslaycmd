@@ -38,4 +38,18 @@ net.Receive("SendSlayMenu",function()
         btnWithIcon:SetIcon( "icon16/gun.png" )	
         Menu:Open()
     end
+
+    AppList.OnRowSelected = function( panel, rowIndex, row )
+        local Menu = DermaMenu()
+        local btnWithIcon = Menu:AddOption( "Slay", function()
+            net.Start("SendSlayMenu")
+            local target = row:GetColumnText(2)
+            net.WriteString(target)
+            net.SendToServer()
+            Frame:Close()
+        end
+        )
+        btnWithIcon:SetIcon( "icon16/gun.png" )	
+        Menu:Open()
+    end
 end)

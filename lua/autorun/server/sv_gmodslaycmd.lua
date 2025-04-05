@@ -26,7 +26,7 @@ hook.Add("PlayerSay","SlayCommand",function(ply,txt)
         if correspondances <= 0 then
             ply:PrintMessage(HUD_PRINTTALK,"Can't find \"" .. targetNickname .. "\"")
         else
-            ply:PrintMessage(HUD_PRINTTALK,"Player( \"" .. targetNickname .. "\" has been slayed")
+            ply:PrintMessage(HUD_PRINTTALK,"Player \"" .. targetNickname .. "\" has been slayed")
         end
     return ""
     end
